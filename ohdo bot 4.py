@@ -1,9 +1,11 @@
 import discord
 import random
+import os
 
 client = discord.Client()
 
-token = "OTAzMjkwMDMwMTMzNTEwMjQ0.YXq0ZQ.wTvgjeQrZja3fKTWX1OCfn5cwHo"
+access_token = os.environ["BOT_TOKEN"]
+token = access_token
 
 #bad = ["ㅅㅂ", "시발", "tlqkf", "병신", "ㅂㅅ", "ㅄ", "qudtls", "씨발", "시바", "좆", "ㅈ같네", "시이발", "섹스", "ㅅㅅ", "섻으", "시.발", "병.신", "지랄", "ㅈㄹ", "지.랄", "ㅗ", "ㅅ.ㅂ", "ㅂ.ㅅ", "ㅈ.ㄹ", "개새끼"]
 
@@ -13,7 +15,7 @@ async def on_ready():
     print("준비_완료")
     game = discord.Game("서버 감시")
     await client.change_presence(status=discord.Status.online, activity=game)
-
+    
 @client.event
 async def on_message(message):
     global doing
